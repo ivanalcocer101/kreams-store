@@ -167,7 +167,7 @@
           <h2>Escríbenos por WhatsApp</h2>
           <p>Estamos para ayudarte a elegir tus productos.</p>
           <div class="phone">📱 607 54141</div>
-          <a class="btn btn-primary" href="https://wa.me/59100000000?text=Hola%20Kreams%20Store%2C%20quiero%20hacer%20un%20pedido." target="_blank">💬 ESCRIBIR POR WHATSAPP</a>
+          <a class="btn btn-primary" href="https://wa.me/59160754141?text=Hola%20Kreams%20Store%2C%20quiero%20hacer%20un%20pedido."
         </div>
         <div class="mini-guarantees">
           <div class="mini-guarantee"><div class="big">🛡️</div><strong>Pagos seguros</strong><small>Tu información protegida</small></div>
@@ -192,7 +192,7 @@
     const grid=document.getElementById('productGrid');
     products.forEach((p,i)=>{
       const card=document.createElement('article'); card.className='product';
-      card.innerHTML=`${p.badge?`<span class="badge ${p.badge.toLowerCase().includes('best')?'gold':''}">${p.badge}</span>`:''}<div class="product-img"><div class="placeholder">✦</div></div><div class="product-info"><div class="brand">${p.brand}</div><h3>${p.name}</h3><div class="price">${p.price==='Consultar'?p.price:'Bs. '+p.price}</div><a class="whatsapp-small" href="https://wa.me/59100000000?text=Hola%20Kreams%20Store%2C%20quiero%20consultar%20por%20${encodeURIComponent(p.name)}." target="_blank">💬 PEDIR POR WHATSAPP</a></div>`;
+      card.innerHTML=`${p.badge?`<span class="badge ${p.badge.toLowerCase().includes('best')?'gold':''}">${p.badge}</span>`:''}<div class="product-img"><div class="placeholder">✦</div></div><div class="product-info"><div class="brand">${p.brand}</div><h3>${p.name}</h3><div class="price">${p.price==='Consultar'?p.price:'Bs. '+p.price}</div><a class="whatsapp-small" href="https://wa.me/59160754141?text=Hola%20Kreams%20Store%2C%20quiero%20consultar%20por%20${encodeURIComponent(p.name)}." target="_blank">💬 PEDIR POR WHATSAPP</a></div>`;
       grid.appendChild(card);
     });
     document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
