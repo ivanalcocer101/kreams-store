@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreams Store | Imports · Beauty · Skincare · Accessories</title>
+  <meta name="description" content="Kreams Store - productos importados de skincare, belleza, cuidado personal y accesorios.">
+  <style>
+    :root{
+      --pink:#ef4f86;
+      --pink-dark:#d93670;
+      --pink-soft:#fff0f5;
+      --gold:#e5a317;
+      --ink:#171717;
+      --muted:#6d6d6d;
+      --line:#ece8e8;
+      --cream:#fffaf7;
+      --white:#fff;
+      --green:#20b85a;
+      --shadow:0 12px 35px rgba(31,24,28,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;cursor:pointer}
+    .topbar{background:#fffaf7;border-bottom:1px solid #f1e9e5;font-size:12px;color:#333}
+    .topbar-inner{max-width:1180px;margin:auto;padding:9px 20px;display:flex;justify-content:space-between;gap:20px}
+    .top-left,.top-right{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .top-item{display:flex;align-items:center;gap:7px}
+    .top-item strong{font-weight:700}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid #eee}
+    .nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:25px}
+    .logo{width:235px;height:auto;display:block}
+    .nav-links{margin-left:auto;display:flex;gap:24px;align-items:center;font-size:13px;font-weight:700}
+    .nav-links a{padding:8px 0;border-bottom:2px solid transparent}
+    .nav-links a:hover,.nav-links a.active{color:var(--pink);border-bottom-color:var(--pink)}
+    .cart{width:43px;height:43px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;position:relative;background:#fff}
+    .cart span{position:absolute;right:-2px;top:-5px;background:var(--gold);color:#fff;border-radius:50%;font-size:10px;width:19px;height:19px;display:grid;place-items:center;font-weight:800}
+    .menu-btn{display:none;border:0;background:none;font-size:26px}
+    .hero{background:linear-gradient(135deg,#fff 0%,#fff9fa 58%,#fff2f6 100%);overflow:hidden}
+    .hero-inner{max-width:1180px;margin:auto;min-height:570px;padding:55px 20px 45px;display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:30px}
+    .eyebrow{display:inline-block;background:#ffe3ec;color:var(--pink-dark);font-size:12px;font-weight:800;letter-spacing:.5px;padding:8px 14px;border-radius:30px;margin-bottom:18px}
+    h1{font-family:Georgia,serif;font-size:62px;line-height:1.03;font-weight:500;max-width:600px;margin-bottom:20px}
+    h1 em{font-style:normal;color:var(--pink)}
+    .hero p{font-size:17px;color:#555;max-width:520px;margin-bottom:27px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;border-radius:30px;padding:14px 23px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:.2s}
+    .btn-primary{background:var(--pink);color:#fff;box-shadow:0 8px 20px rgba(239,79,134,.22)}
+    .btn-primary:hover{background:var(--pink-dark);transform:translateY(-1px)}
+    .btn-outline{background:#fff;border:1px solid #f1b56e;color:#222}
+    .btn-outline:hover{border-color:var(--pink);color:var(--pink)}
+    .hero-image{width:100%;max-width:650px;justify-self:end;filter:drop-shadow(0 25px 28px rgba(50,30,30,.12))}
+    .trust-row{max-width:1180px;margin:auto;padding:0 20px 35px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .trust{display:flex;gap:12px;align-items:flex-start;padding:15px;border-right:1px solid #eee}
+    .trust:last-child{border-right:0}.trust-icon{font-size:25px}.trust strong{display:block;font-size:13px}.trust small{color:var(--muted);font-size:12px}
+    section{padding:65px 20px}.container{max-width:1180px;margin:auto}
+    .section-title{text-align:center;font-family:Georgia,serif;font-size:34px;margin-bottom:8px}.section-title + .underline{margin:0 auto 35px}
+    .underline{height:4px;width:45px;background:var(--pink);border-radius:5px}
+    .categories{background:var(--cream)}
+    .category-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+    .category{border:1px solid #eee;background:#fff;border-radius:18px;overflow:hidden;text-align:center;transition:.2s}
+    .category:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .category-img{height:125px;display:grid;place-items:center;font-size:48px}
+    .c1{background:#ffe0e7}.c2{background:#ffe3b3}.c3{background:#e7ddf2}.c4{background:#ffd8d2}.c5{background:#d9f0e6}.c6{background:#dbeaf5}.c7{background:#ffe9ca}
+    .category h3{font-size:12px;margin:10px 5px 2px}.category p{font-size:11px;color:var(--muted);margin-bottom:13px}
+    .products-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.products-head .section-title{text-align:left;margin:0}.view-all{color:var(--pink);font-weight:800;font-size:13px}
+    .product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+    .product{border:1px solid #ececec;border-radius:16px;overflow:hidden;background:#fff;position:relative;display:flex;flex-direction:column;min-height:390px;transition:.2s}
+    .product:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+    .badge{position:absolute;top:10px;left:10px;z-index:2;padding:5px 8px;border-radius:7px;color:#fff;background:var(--pink);font-size:9px;font-weight:900;text-transform:uppercase}
+    .badge.gold{background:#f1a90b}.product-img{height:200px;background:#fafafa;display:grid;place-items:center;padding:18px}.product-img img{width:100%;height:100%;object-fit:contain}.placeholder{font-size:65px;color:#d8d8d8}
+    .product-info{padding:13px 13px 15px;display:flex;flex-direction:column;flex:1}.brand{font-size:10px;font-weight:800;color:#777;text-transform:uppercase;margin-bottom:4px}.product h3{font-size:13px;line-height:1.35;margin-bottom:8px}.price{font-size:16px;color:var(--pink);font-weight:900;margin-top:auto;margin-bottom:10px}.whatsapp-small{border:1px solid var(--pink);color:var(--pink);background:#fff;border-radius:8px;padding:9px;font-size:11px;font-weight:900;text-align:center}.whatsapp-small:hover{background:var(--pink);color:#fff}
+    .benefits{padding-top:10px}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.benefit{padding:23px;border-radius:17px;display:flex;gap:15px;align-items:center}.benefit:nth-child(1){background:#fff0f4}.benefit:nth-child(2){background:#fff7e9}.benefit:nth-child(3){background:#f3effb}.benefit .icon{font-size:34px}.benefit strong{display:block;font-size:15px}.benefit p{font-size:12px;color:#555}
+    .contact{background:linear-gradient(135deg,#fff5f8,#fffaf5)}.contact-box{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:40px}.contact h2{font-family:Georgia,serif;font-size:36px;margin-bottom:8px}.contact p{color:#555;margin-bottom:20px}.phone{font-size:24px;font-weight:900;color:var(--pink);margin-bottom:17px}.mini-guarantees{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.mini-guarantee{text-align:center}.mini-guarantee .big{font-size:30px}.mini-guarantee strong{display:block;font-size:11px}.mini-guarantee small{font-size:10px;color:#666}
+    footer{background:#171717;color:#fff;padding:25px 20px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;font-size:11px;color:#bbb}.footer-links{display:flex;gap:20px}.footer-links a:hover{color:#fff}
+    @media(max-width:1000px){.nav-links{gap:13px}.logo{width:200px}.category-grid{grid-template-columns:repeat(4,1fr)}.product-grid{grid-template-columns:repeat(3,1fr)}.hero-inner{grid-template-columns:1fr 1fr}.hero-image{max-width:500px}h1{font-size:50px}}
+    @media(max-width:760px){.top-left .top-item:nth-child(2),.top-left .top-item:nth-child(3){display:none}.nav{justify-content:space-between}.menu-btn{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:73px;background:#fff;border-bottom:1px solid #eee;padding:20px;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.cart{margin-left:auto}.hero-inner{grid-template-columns:1fr;padding-top:35px}.hero-image{grid-row:1;justify-self:center;max-width:520px}h1{font-size:45px}.trust-row{grid-template-columns:1fr}.trust{border-right:0;border-bottom:1px solid #eee}.category-grid{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}.benefit-grid,.contact-box{grid-template-columns:1fr}.mini-guarantees{grid-template-columns:repeat(3,1fr)}.footer-inner{flex-direction:column}}
+    @media(max-width:480px){.logo{width:175px}.topbar-inner{font-size:10px}.hero p{font-size:15px}h1{font-size:39px}.section-title{font-size:29px}.product-grid{grid-template-columns:1fr 1fr;gap:9px}.product{min-height:355px}.product-img{height:160px}.category-img{height:105px}.mini-guarantees{gap:8px}.mini-guarantee strong{font-size:9px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="top-left">
+        <div class="top-item">📦 <strong>Productos Importados</strong></div>
+        <div class="top-item">✨ <strong>Calidad Premium</strong></div>
+        <div class="top-item">♡ <strong>Belleza que te hace sentir bien</strong></div>
+      </div>
+      <div class="top-right"><span>Seguinos:</span><span>Instagram</span><span>Facebook</span><span>TikTok</span></div>
+    </div>
+  </div>
+
+  <header>
+    <nav class="nav">
+      <a href="#inicio"><img class="logo" src="logo.png" alt="Kreams Store"></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a class="active" href="#inicio">INICIO</a>
+        <a href="#catalogo">CATÁLOGO</a>
+        <a href="#categorias">CATEGORÍAS</a>
+        <a href="#novedades">NOVEDADES</a>
+        <a href="#ofertas">OFERTAS</a>
+        <a href="#nosotros">NOSOTROS</a>
+        <a href="#contacto">CONTACTO</a>
+      </div>
+      <button class="cart" aria-label="Carrito">🛒<span id="cartCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">PRODUCTOS IMPORTADOS</span>
+          <h1>Belleza que <em>inspira confianza</em></h1>
+          <p>Descubre productos de skincare, maquillaje, cuidado personal y más, seleccionados e importados especialmente para ti.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/59100000000?text=Hola%20Kreams%20Store%2C%20quiero%20hacer%20una%20consulta." target="_blank">💬 PEDIR POR WHATSAPP</a>
+            <a class="btn btn-outline" href="#catalogo">VER CATÁLOGO</a>
+          </div>
+        </div>
+        <img class="hero-image" src="logo.png" alt="Productos de Kreams Store">
+      </div>
+      <div class="trust-row">
+        <div class="trust"><div class="trust-icon">♢</div><div><strong>100% Originales</strong><small>Productos auténticos de marcas seleccionadas</small></div></div>
+        <div class="trust"><div class="trust-icon">📦</div><div><strong>Importados para ti</strong><small>Traemos productos que te encantan</small></div></div>
+        <div class="trust"><div class="trust-icon">♡</div><div><strong>Compra segura</strong><small>Tu compra y tus datos siempre protegidos</small></div></div>
+      </div>
+    </section>
+
+    <section class="categories" id="categorias">
+      <div class="container">
+        <h2 class="section-title">Explora nuestras categorías</h2><div class="underline"></div>
+        <div class="category-grid">
+          <a class="category" href="#catalogo"><div class="category-img c1">🧴</div><h3>SKINCARE</h3><p>Cuidado facial</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c2">🧴</div><h3>CORPORAL</h3><p>Cuidado corporal</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c3">💧</div><h3>CABELLO</h3><p>Cuidado capilar</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c4">💄</div><h3>MAQUILLAJE</h3><p>Maquillaje</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c5">💊</div><h3>BIENESTAR</h3><p>Vitaminas y más</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c6">🪒</div><h3>ACCESORIOS</h3><p>Accesorios de belleza</p></a>
+          <a class="category" href="#catalogo"><div class="category-img c7">✈️</div><h3>IMPORTADOS</h3><p>De todo el mundo</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <div class="container">
+        <div class="products-head"><h2 class="section-title">Productos destacados</h2><a class="view-all" href="#catalogo">Ver todos →</a></div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="benefits" id="novedades">
+      <div class="container"><div class="benefit-grid">
+        <div class="benefit"><div class="icon">🚚</div><div><strong>Envíos a todo el país</strong><p>Rápidos, seguros y confiables.</p></div></div>
+        <div class="benefit" id="ofertas"><div class="icon">🎁</div><div><strong>Promociones exclusivas</strong><p>Ofertas y descuentos especiales.</p></div></div>
+        <div class="benefit" id="nosotros"><div class="icon">♡</div><div><strong>Atención personalizada</strong><p>Te ayudamos a encontrar lo que buscas.</p></div></div>
+      </div></div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-box">
+        <div>
+          <p>¿Tienes dudas o quieres hacer tu pedido?</p>
+          <h2>Escríbenos por WhatsApp</h2>
+          <p>Estamos para ayudarte a elegir tus productos.</p>
+          <div class="phone">📱 607 54141</div>
+          <a class="btn btn-primary" href="https://wa.me/59100000000?text=Hola%20Kreams%20Store%2C%20quiero%20hacer%20un%20pedido." target="_blank">💬 ESCRIBIR POR WHATSAPP</a>
+        </div>
+        <div class="mini-guarantees">
+          <div class="mini-guarantee"><div class="big">🛡️</div><strong>Pagos seguros</strong><small>Tu información protegida</small></div>
+          <div class="mini-guarantee"><div class="big">📦</div><strong>Productos originales</strong><small>Garantía de calidad</small></div>
+          <div class="mini-guarantee"><div class="big">⭐</div><strong>Marcas premium</strong><small>Seleccionadas para ti</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><span>© 2026 Kreams Store. Todos los derechos reservados.</span><div class="footer-links"><a href="#">Términos y condiciones</a><a href="#">Política de privacidad</a></div></div></footer>
+
+  <script>
+    // PRODUCTOS TEMPORALES: los reemplazaremos cuando recibas la lista real.
+    const products = [
+      {name:'Producto de skincare',brand:'Próximamente',price:'Consultar',badge:'Nuevo'},
+      {name:'Producto destacado',brand:'Próximamente',price:'Consultar',badge:'Best seller'},
+      {name:'Cuidado facial',brand:'Próximamente',price:'Consultar',badge:'Nuevo'},
+      {name:'Cuidado personal',brand:'Próximamente',price:'Consultar',badge:''},
+      {name:'Producto importado',brand:'Próximamente',price:'Consultar',badge:''}
+    ];
+    const grid=document.getElementById('productGrid');
+    products.forEach((p,i)=>{
+      const card=document.createElement('article'); card.className='product';
+      card.innerHTML=`${p.badge?`<span class="badge ${p.badge.toLowerCase().includes('best')?'gold':''}">${p.badge}</span>`:''}<div class="product-img"><div class="placeholder">✦</div></div><div class="product-info"><div class="brand">${p.brand}</div><h3>${p.name}</h3><div class="price">${p.price==='Consultar'?p.price:'Bs. '+p.price}</div><a class="whatsapp-small" href="https://wa.me/59100000000?text=Hola%20Kreams%20Store%2C%20quiero%20consultar%20por%20${encodeURIComponent(p.name)}." target="_blank">💬 PEDIR POR WHATSAPP</a></div>`;
+      grid.appendChild(card);
+    });
+    document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+  </script>
+</body>
+</html>
